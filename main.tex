@@ -1,11 +1,23 @@
 \documentclass{article}
 \usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{lineno}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+
+% Make line numbers smaller, lighter gray, and further to the left
+\renewcommand\linenumberfont{\normalfont\tiny\color{gray}}
+\setlength\linenumbersep{2em}
+
 \linenumbers
 
-\title{Exercises for Introduction to mathematical arguments (Hutchings)}
+\title{Exercises for Introduction to Mathematical Arguments}
 \author{Kevin Ma}
-\date{May 2025}
+\date{\today\\\small{Based on notes by M. Hutchings\footnote{\href{https://math.berkeley.edu/\~{}hutching/teach/proofs.pdf}{https://math.berkeley.edu/$\sim$hutching/teach/proofs.pdf}}}}
+
+\newcommand{\negation}[1]{\textbf{Negation:} #1}
 
 \begin{document}
 
@@ -23,49 +35,66 @@
         integer $y$, $xy$ is even.
 
         \begin{proof}
-          Since $x$ is even, choose an integer $w$ such that $x = 2w$. \\
-          Then, $xy = 2wy$. \\
+          Since $x$ is even, choose an integer $w$ such that $x = 2w$.
+
+          Then, $xy = 2wy$.
+
           Let $z=wy$; then $xy=2z$, so $xy$ is even.
         \end{proof}
+
+        \negation{$x$ is even, and there is an integer $y$ where $xy$ is odd.}
 
       \item For every integer $x$ and for every integer $y$, if $x$
         is odd and $y$ is odd then $x + y$ is even.
 
         \begin{proof}
           Since $x$ is odd, choose an integer $v$ such that $x=2v+1$.
-          Since $y$ is odd, choose an integer $w$ such that $y=2w+1$. \\
-          Then, $x+y=2v+2w+2$. \\
+          
+          Since $y$ is odd, choose an integer $w$ such that $y=2w+1$.
+
+          Then, $x+y=2v+2w+2$.
+
           Let $z=v+w+1$; then $x+y=2z$, so $x+y$ is even.
         \end{proof}
+
+        \negation{There is an integer $x$ and an integer $y$ such that $x$ is odd, $y$ is odd, and $x+y$ is odd.}
 
       \item For every integer $x$, if $x$ is odd then $x^3$ is odd.
 
         \begin{proof}
-          Since $x$ is odd, choose an integer $w$ such that $x=2w+1$. \\
-          Then, $x^3 = 8w^3+12w^2+6w+1$. \\
+          Since $x$ is odd, choose an integer $w$ such that $x=2w+1$.
+
+          Then, $x^3 = 8w^3+12w^2+6w+1$.
+
           Let $z=4w^3+6w^2+3w$; then $x^3=2z+1$, so $x^3$ is odd.
         \end{proof}
 
-        % TODO: negations
+        \negation{There is an integer $x$ such that $x$ is odd and $x^3$ is even.}
 
     \end{enumerate}
   \item Prove that for every integer $x$, $x + 4$ is odd if and only
     if $x + 7$ is even.
 
     \begin{proof}
-      ($\Rightarrow$) Suppose $x+4$ is odd. \\
-      Choose an integer $v$ such that $x+4=2v+1$. \\
-      Then, $x+7 = 2v+4$. \\
-      Let $z=v+2$; then $x+7 = 2z$, so $x+7$ is even. \\
-      ($\Leftarrow$) Suppose $x+7$ is even. \\
-      Choose an integer $w$ such that $x+7=2w$. \\
-      Then, $x+4=2w-3=2(w-2)+1$. \\
+      ($\Rightarrow$) Suppose $x+4$ is odd.
+
+      Choose an integer $v$ such that $x+4=2v+1$.
+
+      Then, $x+7 = 2v+4$.
+
+      Let $z=v+2$; then $x+7 = 2z$, so $x+7$ is even.
+
+      ($\Leftarrow$) Suppose $x+7$ is even.
+
+      Choose an integer $w$ such that $x+7=2w$.
+
+      Then, $x+4=2w-3=2(w-2)+1$.
+
       Let $z=w-2$; then $x+4=2z+1$, so $x+4$ is odd.
     \end{proof}
 
   \item Figure out whether the statement we negated in \S1.3 is true
     or false, and prove it (or its negation).
-
 
   \item Prove that for every integer $x$, if $x$ is odd then there
     exists an integer $y$ such that $x^2 = 8y + 1$.
