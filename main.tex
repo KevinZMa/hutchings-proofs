@@ -154,13 +154,15 @@ Hutchings\footnote{\url{https://math.berkeley.edu/~hutching/teach/proofs.pdf}}}}
   \item Prove that the inverse of a given element $x \in G$ is unique.
 
     \begin{proof}
-      Let $v,w$ be elements of $G$ satisfying $v^{-1}=x$ and $w^{-1}=x$.
-      By the definition of an inverse, $vx=e=xw$.
-      Using the identity element and substituting the above identity,
-      $ve=v(xw)=(vx)w=ew$.
-      Since multiplication by the identity element results in the
-      element itself, $ve=v$ and $ew=w$, meaning $v=w$, so the
-      inverse of a given element $x \in G$ is unique.
+      Let $e$ be the identity element and let $v,w$ be elements of $G$ satisfying $vx=e$ and $xw=e$, by the definition of an inverse.
+      \begin{align}
+        v &= ve & & \text{(definition of identity element)} \\
+        &= v(xw) & & \text{(substitution)} \\
+        &= (vx)w & & \text{(associative property)} \\
+        &= ew & & \text{(substitution)} \\
+        &= w & & \text{(definition of identity element)}        
+      \end{align}
+      Thus, the inverse of a given element $x \in G$ is unique.
     \end{proof}
 
 \end{enumerate}
