@@ -12,6 +12,12 @@
 
 \linenumbers
 
+\newenvironment{answer}{
+\begin{quote}}{
+\end{quote}}
+
+%%%
+
 \title{Exercises for Introduction to Mathematical Arguments}
 \author{Kevin Ma}
 \date{\today\\\small{Based on notes by M.
@@ -154,15 +160,109 @@ Hutchings\footnote{\url{https://math.berkeley.edu/~hutching/teach/proofs.pdf}}}}
   \item Prove that the inverse of a given element $x \in G$ is unique.
 
     \begin{proof}
-      Let $e$ be the identity element and let $v,w$ be elements of $G$ satisfying $vx=e$ and $xw=e$, by the definition of an inverse.
+      Let $e$ be the identity element and let $v,w$ be elements of
+      $G$ satisfying $vx=e$ and $xw=e$, by the definition of an inverse.
       \begin{align}
         v &= ve & & \text{(definition of identity element)} \\
         &= v(xw) & & \text{(substitution)} \\
         &= (vx)w & & \text{(associative property)} \\
         &= ew & & \text{(substitution)} \\
-        &= w & & \text{(definition of identity element)}        
+        &= w & & \text{(definition of identity element)}
       \end{align}
       Thus, the inverse of a given element $x \in G$ is unique.
+    \end{proof}
+
+\end{enumerate}
+
+\section{Proof by induction}
+
+\begin{enumerate}
+
+  \item Fix a real number $x \neq 1$. Show that for every positive integer $n$,
+    \[
+      1 + x + x^2 + \ldots + x^n = \frac{x^{n+1} - 1}{x - 1}.
+    \]
+
+    \begin{proof}
+      \textit{Base case:} For $n=1$:
+      \[
+        1+x=\frac{x^2-1}{x-1}=x+1.
+      \]
+
+      \textit{Inductive step:} Add $x^{n+1}$ to both sides.
+      \begin{align*}
+        1+x+x^2+\ldots+x^n+x^{n+1}&=\frac{x^{n+1}-1}{x-1}+x^{n+1} \\
+        &= \frac{x^{n+1}-1+x^{n+1}(x-1)}{x-1} \\
+        &= \frac{x^{n+1}(1+x-1)-1}{x-1} \\
+        &= \frac{x^{n+2}-1}{x-1}
+        .
+      \end{align*}
+    \end{proof}
+
+  \item Guess a formula for
+    \[
+      \frac{1}{1 \cdot 2} + \frac{1}{2 \cdot 3} + \ldots + \frac{1}{n(n+1)}
+    \]
+    and prove it by induction. \textit{Hint:} Compute the above
+    expression for some small values of $n$.
+
+    \begin{answer}
+      For $n=1$: $S=\frac{1}{2}$.
+
+      For $n=2$: $S=\frac{1}{2}+\frac{1}{6}=\frac{2}{3}$.
+
+      For $n=3$: $S=\frac{4}{6}+\frac{1}{12}=\frac{3}{4}$.
+
+      For $n=4$: $S=\frac{3}{4}+\frac{1}{20}=\frac{4}{5}$.
+
+      The pattern looks like $\frac{n}{n+1}$.
+
+      \begin{proof}
+        \textit{Base case:}
+        \begin{align*}
+          \frac{1}{1 \cdot 2} = \frac{1}{1+1} = \frac{1}{2}
+          .
+        \end{align*}
+
+        \textit{Inductive step:} To prove the sum with the $(n+1)$th
+        term is $\frac{n+1}{n+2}$, add the next term
+        $\frac{1}{(n+1)(n+2)}$ to both sides.
+
+        \begin{align*}
+          \frac{1}{1 \cdot 2} + \frac{1}{2 \cdot 3} &+ \ldots +
+          \frac{1}{n(n+1)} + \frac{1}{(n+1)(n+2)}\\
+          &= \frac{n}{n+1} + \frac{1}{(n+1)(n+2)} \\
+          &= \frac{n(n+2)+1}{(n+1)(n+2)} \\
+          &= \frac{n^2+2n+1}{(n+1)(n+2)} \\
+          &= \frac{n+1}{n+2}
+          .
+        \end{align*}
+      \end{proof}
+    \end{answer}
+
+  \item Show that a $2^n \times 2^n$ checkerboard with one square
+    removed can be tiled with L-triominoes. (An \textbf{L-triomino}
+    is a shape consisting of three squares joined in an `L'-shape.)
+
+    \begin{proof}
+      \textit{Base case:} When removing any square of a $2\times 2$ checkerboard, 3 squares remain and must form an L-triomino.
+
+      \textit{Inductive step:} A $2^{n+1}\times 2^{n+1}$ board can be divided into four $2^n \times 2^n$ boards by dividing it in half (by 2) both vertically and horizontally. We will refer to each of these boards as \textbf{quadrants}.
+
+      A square is removed from one of the four quadrants. By our induction hypothesis, this quadrant (a $2^n \times 2^n$ board) can be tiled with L-triominoes. 
+      
+      Because $n\ge 1$, the board will always have at least 4 squares. Consider the center 4 squares. Since this is a $2\times 2$ ``board'' with one square from a quadrant that has already been accounted for or ``occupied,'' the base case applies to this region, and an L-triomino can be placed here.
+      
+      Now, each of the remaining quadrants has one square occupied, which has the same effect as being removed. By our induction hypothesis, the remaining quadrants can also be tiled by L-triominoes.
+    \end{proof}
+
+  \item Show that the smallest element of a nonempty set of positive
+    integers is unique.
+
+    \begin{proof}
+      \textit{Base case:} Consider an $n$-element set of positive integers where $n=1$. The smallest (only) element is unique.
+
+      \textit{Inductive step:} Our inductive hypothesis states that the smallest element in a set with $n$ positive integers is unique. Let $z$ be the smallest element of the set, excluding element $n+1$, which we will refer to as $m$.
     \end{proof}
 
 \end{enumerate}
