@@ -245,26 +245,88 @@ Hutchings\footnote{\url{https://math.berkeley.edu/~hutching/teach/proofs.pdf}}}}
     is a shape consisting of three squares joined in an `L'-shape.)
 
     \begin{proof}
-      \textit{Base case:} When removing any square of a $2\times 2$ checkerboard, 3 squares remain and must form an L-triomino.
+      \textit{Base case:} When removing any square of a $2\times 2$
+      checkerboard, 3 squares remain and must form an L-triomino.
 
-      \textit{Inductive step:} A $2^{n+1}\times 2^{n+1}$ board can be divided into four $2^n \times 2^n$ boards by dividing it in half (by 2) both vertically and horizontally. We will refer to each of these boards as \textbf{quadrants}.
+      \textit{Inductive step:} A $2^{n+1}\times 2^{n+1}$ board can be
+      divided into four $2^n \times 2^n$ boards by dividing it in
+      half (by 2) both vertically and horizontally. We will refer to
+      each of these boards as \textbf{quadrants}.
 
-      A square is removed from one of the four quadrants. By our induction hypothesis, this quadrant (a $2^n \times 2^n$ board) can be tiled with L-triominoes. 
-      
-      Because $n\ge 1$, the board will always have at least 4 squares. Consider the center 4 squares. Since this is a $2\times 2$ ``board'' with one square from a quadrant that has already been accounted for or ``occupied,'' the base case applies to this region, and an L-triomino can be placed here.
-      
-      Now, each of the remaining quadrants has one square occupied, which has the same effect as being removed. By our induction hypothesis, the remaining quadrants can also be tiled by L-triominoes.
+      A square is removed from one of the four quadrants. By our
+      induction hypothesis, this quadrant (a $2^n \times 2^n$ board)
+      can be tiled with L-triominoes.
+
+      Because $n\ge 1$, the board will always have at least 4
+      squares. Consider the center 4 squares. Since this is a
+      $2\times 2$ ``board'' with one square from a quadrant that has
+      already been accounted for or ``occupied,'' the base case
+      applies to this region, and an L-triomino can be placed here.
+
+      Now, each of the remaining quadrants has one square occupied,
+      which has the same effect as being removed. By our induction
+      hypothesis, the remaining quadrants can also be tiled by L-triominoes.
     \end{proof}
 
   \item Show that the smallest element of a nonempty set of positive
     integers is unique.
 
     \begin{proof}
-      \textit{Base case:} Consider an $n$-element set of positive integers where $n=1$. The smallest (only) element is unique.
+      \textit{Base case:} Consider an $n$-element set of positive
+      integers where $n=1$. The smallest (only) element is unique.
 
-      \textit{Inductive step:} Our inductive hypothesis states that the smallest element in a set with $n$ positive integers is unique. Let $z$ be the smallest element of the set, excluding element $n+1$, which we will refer to as $m$.
+      \textit{Inductive step:} Our inductive hypothesis states that
+      the smallest element in a set with $n$ positive integers is
+      unique. Let $z$ be the smallest element of the set, excluding
+      element $n+1$, which we will refer to as $m$.
     \end{proof}
 
+\end{enumerate}
+
+\appendix
+\section{Sets}
+
+\begin{enumerate}
+  \item List separately the elements and the subsets of $\{\{1,
+    \{2\}\}, \{3\}\}$. (There are 2 elements and 4 subsets.)
+    \begin{answer}
+      Elements: \{1, \{2\}\}, \{3\}
+
+      Subsets: $\emptyset$, \{\{1, \{2\}\}\}, \{\{3\}\}, \{\{1, \{2\}\}, \{3\}\}
+    \end{answer}
+
+  \item Explain why if $A \subset B$ and $B \subset C$, then $A \subset C$.
+  \begin{answer}
+    Since every element of $A$ is in $B$, and every element of $B$ is in $C$, every element in $A$ is in $C$.    
+  \end{answer}
+
+  \item If a set has exactly $n$ elements, how many subsets does it have? Why?
+  \begin{answer}
+    Every element in the set has 2 options, to be included or excluded. Thus, there are $2^n$ possible subsets.
+  \end{answer}
+
+  \item We have repeatedly used the words, `\textit{the} empty set'. Is this
+    justified? If $A$ and $B$ are both sets that contain no elements,
+    then is $A$ necessarily equal to $B$?
+  \begin{answer}
+    Yes, because the elements---or lack thereof---of both $A$ and $B$ are identical.
+  \end{answer}
+
+  \item Which of the following statements are true, and which are false? Why?
+    \begin{enumerate}
+      \item $\{\emptyset\} \cup \emptyset = \{\emptyset\}$
+      \item $\{\emptyset\} \cup \{\emptyset\} = \{\emptyset\}$
+      \item $\{\emptyset\} \cap \{\{\emptyset\}\} = \emptyset$
+      \item $\{\emptyset\} \cap \{\{\emptyset\}\} = \{\emptyset\}$
+    \end{enumerate}
+
+  \item Prove all of the properties of union, intersection, and set
+    difference that we stated without proof in the text.
+
+  \item Show that $A \cup (B-C) = (A \cup B)-(A \cap C)$. Is it
+    always true that $A \cup (B-C) = (A \cup B) - (A \cup C)$?
+
+  \item Find some more set theoretic identities and prove them.
 \end{enumerate}
 
 \end{document}
